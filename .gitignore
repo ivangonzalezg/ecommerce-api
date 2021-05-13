@@ -111,6 +111,3 @@ license.txt
 exports
 *.cache
 .strapi-updater.json
-
-yarn.lock
-package-lock.json

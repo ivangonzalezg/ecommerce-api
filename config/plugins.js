@@ -1,21 +1,15 @@
-const email = process.env.EMAIL;
-const password = process.env.PASSWORD;
+const path = require("path");
 
 module.exports = ({ env }) => ({
   email: {
-    provider: "nodemailer",
+    provider: "googleapis",
     providerOptions: {
-      host: env("SMTP_HOST", "smtp.gmail.com"),
-      port: env("SMTP_PORT", 587),
-      auth: {
-        user: env("SMTP_USERNAME", email),
-        pass: env("SMTP_PASSWORD", password),
-      },
-      secure: false,
+      credentialsPath: path.join(__dirname, "../credentials.gmail.json"),
+      tokenPath: path.join(__dirname, "../token.gmail.json"),
     },
     settings: {
-      defaultFrom: `Ivan Gonzalez <${email}>`,
-      defaultReplyTo: `Ivan Gonzalez <${email}>`,
+      defaultFrom: "Ivan Gonzalez <ivan.gonzalez.testing.email@gmail.com>",
+      defaultReplyTo: "Ivan Gonzalez <ivan.gonzalez.testing.email@gmail.com>",
     },
   },
 });
