@@ -1,8 +1,8 @@
 {
   "name": "ecommerce-api",
   "private": true,
-  "version": "0.1.0",
-  "description": "A Strapi application",
+  "version": "1.0.0",
+  "description": "Ecommerce API",
   "scripts": {
     "develop": "strapi develop",
     "start": "strapi start",
@@ -11,21 +11,22 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "strapi": "3.6.1",
-    "strapi-admin": "3.6.1",
-    "strapi-connector-mongoose": "3.6.1",
-    "strapi-plugin-content-manager": "3.6.1",
-    "strapi-plugin-content-type-builder": "3.6.1",
-    "strapi-plugin-email": "3.6.1",
-    "strapi-plugin-i18n": "3.6.1",
-    "strapi-plugin-upload": "3.6.1",
-    "strapi-plugin-users-permissions": "3.6.1",
-    "strapi-provider-email-googleapis": "^1.0.0",
-    "strapi-provider-upload-aws-s3": "^3.6.2",
-    "strapi-utils": "3.6.1"
+    "strapi": "3.6.3",
+    "strapi-admin": "3.6.3",
+    "strapi-connector-mongoose": "3.6.3",
+    "strapi-plugin-content-manager": "3.6.3",
+    "strapi-plugin-content-type-builder": "3.6.3",
+    "strapi-plugin-email": "3.6.3",
+    "strapi-plugin-i18n": "3.6.3",
+    "strapi-plugin-upload": "3.6.3",
+    "strapi-plugin-users-permissions": "3.6.3",
+    "strapi-provider-email-googleapis": "1.0.0",
+    "strapi-provider-upload-aws-s3": "3.6.3",
+    "strapi-utils": "3.6.3"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Ivan Gonzalez",
+    "url": "https://github.com/ivangonzalezg"
   },
   "strapi": {
     "uuid": "761f99dd-e5c7-4b68-b59f-2a46152fca94"
