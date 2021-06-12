@@ -6,7 +6,7 @@ module.exports = ({ env }) => ({
       secret: env("ADMIN_JWT_SECRET", "ec79b5fe2db5c0f54a39ec3111dcb0df"),
     },
   },
-  url: "http://ecommerce-api.ddns.net",
+  url: env("URL"),
   cron: {
     enabled: true,
   },
