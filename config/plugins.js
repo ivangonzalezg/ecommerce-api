@@ -12,15 +12,15 @@ module.exports = ({ env }) => ({
       defaultReplyTo: "Ivan Gonzalez <ivan.gonzalez.testing.email@gmail.com>",
     },
   },
-  /*   upload: {
+  upload: {
     provider: "aws-s3",
     providerOptions: {
       accessKeyId: env("AWS_ACCESS_KEY_ID"),
       secretAccessKey: env("AWS_ACCESS_SECRET"),
       region: "us-east-2",
       params: {
-        Bucket: "ecommerce-web-nw5g4w",
+        Bucket: "ecommerce-nw5g4w",
       },
     },
-  }, */
+  },
 });
