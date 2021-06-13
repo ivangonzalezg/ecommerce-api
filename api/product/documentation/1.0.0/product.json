@@ -711,6 +711,10 @@
           "price": {
             "type": "integer"
           },
+          "discount": {
+            "type": "integer",
+            "default": 0
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -743,6 +747,13 @@
           },
           "price": {
             "type": "integer"
+          },
+          "discount": {
+            "type": "integer",
+            "default": 0
+          },
+          "comment": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
