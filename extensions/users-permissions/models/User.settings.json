@@ -80,6 +80,10 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "directions": {
+      "via": "user",
+      "collection": "direction"
     }
   }
 }
