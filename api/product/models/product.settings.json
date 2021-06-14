@@ -23,7 +23,7 @@
     "slug": {
       "type": "string",
       "unique": true,
-      "required": true,
+      "required": false,
       "regex": "^[a-z0-9\\-]*$"
     },
     "quantity": {
