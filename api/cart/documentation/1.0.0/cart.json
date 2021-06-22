@@ -522,66 +522,63 @@
           "id": {
             "type": "string"
           },
-          "products": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "description",
-                "image",
-                "price"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "integer"
-                },
-                "image": {
-                  "type": "string"
-                },
-                "gallery": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "category": {
-                  "type": "string"
-                },
-                "price": {
-                  "type": "integer"
-                },
-                "discount": {
-                  "type": "integer"
-                },
-                "comment": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
+          "product": {
+            "required": [
+              "id",
+              "name",
+              "description",
+              "image",
+              "price"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "slug": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "image": {
+                "type": "string"
+              },
+              "gallery": {
+                "type": "array",
+                "items": {
                   "type": "string"
                 }
+              },
+              "category": {
+                "type": "string"
+              },
+              "price": {
+                "type": "integer"
+              },
+              "discount": {
+                "type": "integer"
+              },
+              "comment": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
-          "users_permissions_user": {
+          "user": {
             "required": [
               "id",
               "username",
@@ -651,13 +648,10 @@
       },
       "NewCart": {
         "properties": {
-          "products": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "product": {
+            "type": "string"
           },
-          "users_permissions_user": {
+          "user": {
             "type": "string"
           },
           "created_by": {
