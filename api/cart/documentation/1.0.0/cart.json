@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/directions": {
+    "/carts": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Direction"
+                    "$ref": "#/components/schemas/Cart"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Direction"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDirection"
+                "$ref": "#/components/schemas/NewCart"
               }
             }
           }
         }
       }
     },
-    "/directions/count": {
+    "/carts/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "parameters": []
       }
     },
-    "/directions/{id}": {
+    "/carts/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Direction"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Direction"
+                  "$ref": "#/components/schemas/Cart"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewDirection"
+                "$ref": "#/components/schemas/NewCart"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Direction"
+          "Cart"
         ],
         "parameters": [
           {
@@ -514,35 +514,74 @@
   },
   "components": {
     "schemas": {
-      "Direction": {
+      "Cart": {
         "required": [
-          "id",
-          "firstName",
-          "lastName",
-          "address",
-          "city",
-          "phone"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "firstName": {
-            "type": "string"
+          "products": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "description",
+                "image",
+                "price"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "slug": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "integer"
+                },
+                "image": {
+                  "type": "string"
+                },
+                "gallery": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "category": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "integer"
+                },
+                "discount": {
+                  "type": "integer"
+                },
+                "comment": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
           },
-          "lastName": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "integer"
-          },
-          "user": {
+          "users_permissions_user": {
             "required": [
               "id",
               "username",
@@ -610,31 +649,15 @@
           }
         }
       },
-      "NewDirection": {
-        "required": [
-          "firstName",
-          "lastName",
-          "address",
-          "city",
-          "phone"
-        ],
+      "NewCart": {
         "properties": {
-          "firstName": {
-            "type": "string"
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
-          "lastName": {
-            "type": "string"
-          },
-          "address": {
-            "type": "string"
-          },
-          "city": {
-            "type": "string"
-          },
-          "phone": {
-            "type": "integer"
-          },
-          "user": {
+          "users_permissions_user": {
             "type": "string"
           },
           "created_by": {
@@ -649,7 +672,7 @@
   },
   "tags": [
     {
-      "name": "Direction"
+      "name": "Cart"
     }
   ]
 }
