@@ -11,6 +11,7 @@ module.exports = {
     ///const response = await strapi.request("post","/users/me",{}
     const entities = await strapi.services.cart.find({
       user: ctx.state.user.id,
+      ...ctx.query,
     });
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.cart })
