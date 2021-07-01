@@ -7,14 +7,29 @@ const { sanitizeEntity } = require("strapi-utils");
  */
 
 module.exports = {
-  async findMe(ctx) {
-    ///const response = await strapi.request("post","/users/me",{}
+  async myCart(ctx) {
     const entities = await strapi.services.cart.find({
       user: ctx.state.user.id,
-      ...ctx.query,
     });
     return entities.map((entity) =>
       sanitizeEntity(entity, { model: strapi.models.cart })
     );
+  },
+  async addToCart(ctx) {
+    await strapi.services.cart.create({
+      ...ctx.request.body,
+      user: ctx.state.user.id,
+    });
+    const entities = await this.myCart(ctx);
+    return entities;
+  },
+  async removeFromCart(ctx) {
+    const products = await strapi.services.cart.find(ctx.request.body);
+    if (products.length) {
+      const { id } = products[0];
+      await strapi.services.cart.delete({ id });
+    }
+    const entities = await this.myCart(ctx);
+    return entities;
   },
 };

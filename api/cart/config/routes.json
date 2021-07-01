@@ -11,7 +11,23 @@
     {
       "method": "GET",
       "path": "/carts/me",
-      "handler": "cart.findMe",
+      "handler": "cart.myCart",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/carts/add",
+      "handler": "cart.addToCart",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/carts/remove",
+      "handler": "cart.removeFromCart",
       "config": {
         "policies": []
       }
