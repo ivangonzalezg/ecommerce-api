@@ -4,17 +4,17 @@
     "version": "1.0.0",
     "title": "DOCUMENTATION",
     "description": "",
-    "termsOfService": "/terms",
+    "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
     "contact": {
-      "name": "Ivan Gonzalez",
-      "email": "ivangonzalezgrc@gmail.com",
-      "url": "ivangonzalez.co"
+      "name": "TEAM",
+      "email": "contact-email@something.io",
+      "url": "mywebsite.io"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/05/2021 11:04:08 PM"
+    "x-generation-date": "07/06/2021 11:10:00 AM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -1251,6 +1251,70 @@
             "schema": {
               "type": "string"
             }
+          }
+        ]
+      }
+    },
+    "/custom/userbycode": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the user information by reset password token",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsersPermissionsUser"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Custom"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "Code for reset password",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
           }
         ]
       }
@@ -5969,48 +6033,6 @@
                 "type": "string"
               }
             }
-          },
-          "directions": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "firstName",
-                "lastName",
-                "address",
-                "city",
-                "phone"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "address": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "phone": {
-                  "type": "integer"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },
@@ -6109,6 +6131,9 @@
     },
     {
       "name": "Category"
+    },
+    {
+      "name": "Custom"
     },
     {
       "name": "Direction"

@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/custom/userbycode",
+      "handler": "custom.userByCode",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
