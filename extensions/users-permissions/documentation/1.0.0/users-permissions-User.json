@@ -1329,48 +1329,6 @@
                 "type": "string"
               }
             }
-          },
-          "directions": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "firstName",
-                "lastName",
-                "address",
-                "city",
-                "phone"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "firstName": {
-                  "type": "string"
-                },
-                "lastName": {
-                  "type": "string"
-                },
-                "address": {
-                  "type": "string"
-                },
-                "city": {
-                  "type": "string"
-                },
-                "phone": {
-                  "type": "integer"
-                },
-                "user": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
           }
         }
       },

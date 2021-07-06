@@ -82,6 +82,7 @@
       "pluginOptions": {}
     },
     "directions": {
+      "private": true,
       "via": "user",
       "collection": "direction"
     }

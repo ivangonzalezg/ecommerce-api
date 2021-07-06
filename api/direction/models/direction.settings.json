@@ -33,9 +33,9 @@
       "required": true
     },
     "user": {
+      "via": "directions",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "directions"
+      "model": "user"
     }
   }
 }
