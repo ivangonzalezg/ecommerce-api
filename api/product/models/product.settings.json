@@ -27,7 +27,7 @@
       "regex": "^[a-z0-9\\-]*$"
     },
     "quantity": {
-      "type": "biginteger",
+      "type": "integer",
       "min": "0",
       "required": false,
       "default": "0"
@@ -56,7 +56,7 @@
       "model": "category"
     },
     "price": {
-      "type": "biginteger",
+      "type": "integer",
       "required": true,
       "min": "0"
     },
