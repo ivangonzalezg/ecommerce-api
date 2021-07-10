@@ -33,7 +33,7 @@
       "required": true
     },
     "user": {
-      "via": "directions",
+      "private": true,
       "plugin": "users-permissions",
       "model": "user"
     }

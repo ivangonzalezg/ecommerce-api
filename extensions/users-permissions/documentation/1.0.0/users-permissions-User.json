@@ -1383,12 +1383,6 @@
           "phone": {
             "type": "integer"
           },
-          "directions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "created_by": {
             "type": "string"
           },
