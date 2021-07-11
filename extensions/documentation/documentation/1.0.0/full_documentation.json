@@ -4,17 +4,17 @@
     "version": "1.0.0",
     "title": "DOCUMENTATION",
     "description": "",
-    "termsOfService": "YOUR_TERMS_OF_SERVICE_URL",
+    "termsOfService": "/terms",
     "contact": {
-      "name": "TEAM",
-      "email": "contact-email@something.io",
-      "url": "mywebsite.io"
+      "name": "Ivan Gonzalez",
+      "email": "ivangonzalezgrc@gmail.com",
+      "url": "https://ivangonzalez.co"
     },
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/10/2021 8:25:20 PM"
+    "x-generation-date": "07/10/2021 8:34:17 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -37,7 +37,7 @@
   ],
   "externalDocs": {
     "description": "Find out more",
-    "url": "https://strapi.io/documentation/developer-docs/latest/getting-started/introduction.html"
+    "url": "https://strapi.io/documentation/"
   },
   "security": [
     {
