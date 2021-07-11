@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "carts",
+  "collectionName": "orders",
   "info": {
-    "name": "cart",
+    "name": "order",
     "description": ""
   },
   "options": {
@@ -12,14 +12,19 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "direction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "order.direction",
+      "required": true
+    },
     "products": {
       "type": "component",
       "repeatable": true,
-      "required": true,
-      "component": "order.products"
+      "component": "order.products",
+      "required": true
     },
     "user": {
-      "private": true,
       "plugin": "users-permissions",
       "model": "user"
     }
