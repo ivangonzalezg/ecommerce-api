@@ -8,28 +8,89 @@ const { sanitizeEntity } = require("strapi-utils");
 
 module.exports = {
   async myCart(ctx) {
-    const entities = await strapi.services.cart.find({
+    const entity = await strapi.services.cart.findOne({
       user: ctx.state.user.id,
     });
-    return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.cart })
-    );
+    let products = [];
+    if (entity) {
+      products = sanitizeEntity(entity, { model: strapi.models.cart }).products;
+    }
+    return products;
   },
   async addToCart(ctx) {
-    await strapi.services.cart.create({
-      ...ctx.request.body,
+    const cart = await strapi.services.cart.findOne({
       user: ctx.state.user.id,
     });
+    if (cart) {
+      let quantityInsufficient = false;
+      let isProduct = false;
+      const products = cart.products.map((item) => {
+        let quantity = item.quantity;
+        if (item.product.id === ctx.request.body.product) {
+          if (quantity >= item.product.quantity) {
+            quantityInsufficient = true;
+          }
+          quantity += 1;
+          isProduct = true;
+        }
+        return {
+          id: item.id,
+          product: item.product.id,
+          quantity,
+        };
+      });
+      if (quantityInsufficient) {
+        return ctx.badRequest(null, {
+          messages: [
+            {
+              id: "Cart.addToCart.error.product.quantity",
+              message: "There is no more stock of this product",
+            },
+          ],
+        });
+      }
+      if (!isProduct) {
+        products.push({
+          product: ctx.request.body.product,
+          quantity: 1,
+        });
+      }
+      await strapi.services.cart.update({ id: cart.id }, { products });
+    } else {
+      await strapi.services.cart.create({
+        products: [{ product: ctx.request.body.product, quantity: 1 }],
+        user: ctx.state.user.id,
+      });
+    }
     const entities = await this.myCart(ctx);
     return entities;
   },
   async removeFromCart(ctx) {
-    const products = await strapi.services.cart.find(ctx.request.body);
-    if (products.length) {
-      const { id } = products[0];
-      await strapi.services.cart.delete({ id });
+    const cart = await strapi.services.cart.findOne({
+      user: ctx.state.user.id,
+    });
+    if (cart) {
+      let products = cart.products.map((item) => {
+        let quantity = item.quantity;
+        if (item.product.id === ctx.request.body.product) {
+          quantity -= 1;
+        }
+        return {
+          id: item.id,
+          product: item.product.id,
+          quantity,
+        };
+      });
+      products = products.filter((item) => item.quantity > 0);
+      if (products.length > 0) {
+        await strapi.services.cart.update({ id: cart.id }, { products });
+      } else {
+        await strapi.services.cart.delete({ id: cart.id });
+      }
+      const entities = await this.myCart(ctx);
+      return entities;
+    } else {
+      return [];
     }
-    const entities = await this.myCart(ctx);
-    return entities;
   },
 };

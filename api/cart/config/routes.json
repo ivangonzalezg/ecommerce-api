@@ -21,7 +21,7 @@
       "path": "/carts/add",
       "handler": "cart.addToCart",
       "config": {
-        "policies": []
+        "policies": ["is-product"]
       }
     },
     {
@@ -29,7 +29,7 @@
       "path": "/carts/remove",
       "handler": "cart.removeFromCart",
       "config": {
-        "policies": []
+        "policies": ["is-product"]
       }
     },
     {

@@ -794,7 +794,8 @@
                   "type": "integer"
                 }
               }
-            }
+            },
+            "minItems": 1
           }
         }
       },
@@ -803,9 +804,6 @@
           "products"
         ],
         "properties": {
-          "user": {
-            "type": "string"
-          },
           "products": {
             "type": "array",
             "items": {
@@ -878,7 +876,11 @@
                   "type": "integer"
                 }
               }
-            }
+            },
+            "minItems": 1
+          },
+          "user": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

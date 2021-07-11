@@ -16,7 +16,8 @@
       "type": "component",
       "repeatable": true,
       "required": true,
-      "component": "order.products"
+      "component": "order.products",
+      "min": 1
     },
     "user": {
       "private": true,
