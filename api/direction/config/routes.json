@@ -10,6 +10,14 @@
     },
     {
       "method": "GET",
+      "path": "/directions/me",
+      "handler": "direction.myDirections",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/directions/count",
       "handler": "direction.count",
       "config": {
