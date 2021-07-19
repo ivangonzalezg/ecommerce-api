@@ -518,7 +518,7 @@
         "required": [
           "id",
           "direction",
-          "products"
+          "items"
         ],
         "properties": {
           "id": {
@@ -555,7 +555,7 @@
               }
             }
           },
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",
@@ -694,7 +694,7 @@
       "NewOrder": {
         "required": [
           "direction",
-          "products"
+          "items"
         ],
         "properties": {
           "direction": {
@@ -728,7 +728,7 @@
               }
             }
           },
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",

@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "07/11/2021 1:29:06 AM"
+    "x-generation-date": "07/18/2021 7:22:25 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -5651,13 +5651,13 @@
       "Cart": {
         "required": [
           "id",
-          "products"
+          "items"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",
@@ -5736,10 +5736,10 @@
       },
       "NewCart": {
         "required": [
-          "products"
+          "items"
         ],
         "properties": {
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",
@@ -6071,7 +6071,7 @@
         "required": [
           "id",
           "direction",
-          "products"
+          "items"
         ],
         "properties": {
           "id": {
@@ -6108,7 +6108,7 @@
               }
             }
           },
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",
@@ -6247,7 +6247,7 @@
       "NewOrder": {
         "required": [
           "direction",
-          "products"
+          "items"
         ],
         "properties": {
           "direction": {
@@ -6281,7 +6281,7 @@
               }
             }
           },
-          "products": {
+          "items": {
             "type": "array",
             "items": {
               "type": "object",

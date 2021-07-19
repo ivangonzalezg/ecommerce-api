@@ -11,11 +11,11 @@ module.exports = {
     const entity = await strapi.services.cart.findOne({
       user: ctx.state.user.id,
     });
-    let products = [];
+    let items = [];
     if (entity) {
-      products = sanitizeEntity(entity, { model: strapi.models.cart }).products;
+      items = sanitizeEntity(entity, { model: strapi.models.cart }).items;
     }
-    return products;
+    return items;
   },
   async addToCart(ctx) {
     const cart = await strapi.services.cart.findOne({
@@ -24,7 +24,7 @@ module.exports = {
     if (cart) {
       let quantityInsufficient = false;
       let isProduct = false;
-      const products = cart.products.map((item) => {
+      const items = cart.items.map((item) => {
         let quantity = item.quantity;
         if (item.product.id === ctx.request.body.product) {
           if (quantity >= item.product.quantity) {
@@ -50,15 +50,15 @@ module.exports = {
         });
       }
       if (!isProduct) {
-        products.push({
+        items.push({
           product: ctx.request.body.product,
           quantity: 1,
         });
       }
-      await strapi.services.cart.update({ id: cart.id }, { products });
+      await strapi.services.cart.update({ id: cart.id }, { items });
     } else {
       await strapi.services.cart.create({
-        products: [{ product: ctx.request.body.product, quantity: 1 }],
+        items: [{ product: ctx.request.body.product, quantity: 1 }],
         user: ctx.state.user.id,
       });
     }
@@ -70,7 +70,7 @@ module.exports = {
       user: ctx.state.user.id,
     });
     if (cart) {
-      let products = cart.products.map((item) => {
+      let items = cart.items.map((item) => {
         let quantity = item.quantity;
         if (item.product.id === ctx.request.body.product) {
           quantity -= 1;
@@ -81,9 +81,9 @@ module.exports = {
           quantity,
         };
       });
-      products = products.filter((item) => item.quantity > 0);
-      if (products.length > 0) {
-        await strapi.services.cart.update({ id: cart.id }, { products });
+      items = items.filter((item) => item.quantity > 0);
+      if (items.length > 0) {
+        await strapi.services.cart.update({ id: cart.id }, { items });
       } else {
         await strapi.services.cart.delete({ id: cart.id });
       }

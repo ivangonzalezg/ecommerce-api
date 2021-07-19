@@ -1,7 +1,7 @@
 {
   "collectionName": "components_order_products",
   "info": {
-    "name": "products",
+    "name": "items",
     "icon": "cart-plus",
     "description": ""
   },

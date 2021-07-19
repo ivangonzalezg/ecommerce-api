@@ -18,7 +18,7 @@
       "component": "order.direction",
       "required": true
     },
-    "products": {
+    "items": {
       "type": "component",
       "repeatable": true,
       "component": "order.products",
