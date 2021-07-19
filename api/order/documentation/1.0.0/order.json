@@ -627,7 +627,8 @@
                   "type": "integer"
                 }
               }
-            }
+            },
+            "minItems": 1
           },
           "user": {
             "required": [
@@ -800,7 +801,8 @@
                   "type": "integer"
                 }
               }
-            }
+            },
+            "minItems": 1
           },
           "user": {
             "type": "string"
