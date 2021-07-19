@@ -84,12 +84,34 @@ module.exports = {
       items = items.filter((item) => item.quantity > 0);
       if (items.length > 0) {
         await strapi.services.cart.update({ id: cart.id }, { items });
+        const entities = await this.myCart(ctx);
+        return entities;
       } else {
         await strapi.services.cart.delete({ id: cart.id });
+        return [];
       }
+    } else {
+      return [];
+    }
+  },
+  async deleteItem(ctx) {
+    const { id } = ctx.params;
+    const cart = await strapi.services.cart.findOne({
+      user: ctx.state.user.id,
+    });
+    const items = cart.items
+      .map((item) => ({
+        id: item.id,
+        product: item.product.id,
+        quantity: item.quantity,
+      }))
+      .filter((item) => item.id !== id);
+    if (items.length > 0) {
+      await strapi.services.cart.update({ id: cart.id }, { items });
       const entities = await this.myCart(ctx);
       return entities;
     } else {
+      await strapi.services.cart.delete({ id: cart.id });
       return [];
     }
   },

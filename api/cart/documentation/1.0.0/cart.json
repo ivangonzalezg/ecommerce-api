@@ -50,9 +50,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": [
           {
             "name": "_limit",
@@ -238,9 +236,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -305,9 +301,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": []
       }
     },
@@ -362,9 +356,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -433,9 +425,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -504,9 +494,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": []
       }
     },
@@ -557,9 +545,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "parameters": [
           {
             "name": "id",
@@ -619,9 +605,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
         "requestBody": {
           "description": "",
           "required": true,
@@ -693,9 +677,70 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Cart"
-        ],
+        "tags": ["Cart"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/carts/item/{id}": {
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": ["Cart"],
         "parameters": [
           {
             "name": "id",
@@ -714,10 +759,7 @@
   "components": {
     "schemas": {
       "Cart": {
-        "required": [
-          "id",
-          "items"
-        ],
+        "required": ["id", "items"],
         "properties": {
           "id": {
             "type": "string"
@@ -726,22 +768,13 @@
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "id",
-                "quantity"
-              ],
+              "required": ["id", "quantity"],
               "properties": {
                 "id": {
                   "type": "string"
                 },
                 "product": {
-                  "required": [
-                    "id",
-                    "name",
-                    "description",
-                    "image",
-                    "price"
-                  ],
+                  "required": ["id", "name", "description", "image", "price"],
                   "properties": {
                     "id": {
                       "type": "string"
@@ -800,30 +833,19 @@
         }
       },
       "NewCart": {
-        "required": [
-          "items"
-        ],
+        "required": ["items"],
         "properties": {
           "items": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": [
-                "id",
-                "quantity"
-              ],
+              "required": ["id", "quantity"],
               "properties": {
                 "id": {
                   "type": "string"
                 },
                 "product": {
-                  "required": [
-                    "id",
-                    "name",
-                    "description",
-                    "image",
-                    "price"
-                  ],
+                  "required": ["id", "name", "description", "image", "price"],
                   "properties": {
                     "id": {
                       "type": "string"

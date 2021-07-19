@@ -66,6 +66,14 @@
     },
     {
       "method": "DELETE",
+      "path": "/carts/item/:id",
+      "handler": "cart.deleteItem",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
       "path": "/carts/:id",
       "handler": "cart.delete",
       "config": {
