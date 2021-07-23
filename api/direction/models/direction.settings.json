@@ -36,6 +36,10 @@
       "private": true,
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "default": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

@@ -49,6 +49,14 @@
       }
     },
     {
+      "method": "PUT",
+      "path": "/directions/:id/default",
+      "handler": "direction.setDefaultDirection",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "DELETE",
       "path": "/directions/:id",
       "handler": "direction.delete",

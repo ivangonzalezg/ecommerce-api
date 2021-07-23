@@ -15,4 +15,16 @@ module.exports = {
       sanitizeEntity(entity, { model: strapi.models.direction })
     );
   },
+  async setDefaultDirection(ctx) {
+    const { id } = ctx.params;
+    await strapi
+      .query("direction")
+      .model.updateMany(
+        { user: ctx.state.user.id },
+        { $set: { default: false } }
+      );
+    await strapi.services.direction.update({ id }, { default: true });
+    const entities = await this.myDirections(ctx);
+    return entities;
+  },
 };
